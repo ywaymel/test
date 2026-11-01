@@ -769,7 +769,7 @@ unsigned int game_nb_squares_row(st_600982_0 *a0, unsigned int a1, unsigned int 
         if (a2 && a2 != 1 && a2 != 2)
             __assert_fail(); /* do not return */
         v0 = 0;
-        for (i = 0; i < a0->field_0; i += 1)
+        for (i = 0; i + 1 < a0->field_0; i += 1)
         {
             if (a2 == *(int *)&a0->field_8[i + a1 * a0->field_0 & 0xffffffff])
                 v0 += 1;
@@ -778,17 +778,17 @@ unsigned int game_nb_squares_row(st_600982_0 *a0, unsigned int a1, unsigned int 
     }
 }
 
-typedef struct st_600a85_0 {
+typedef struct st_600a8a_0 {
     unsigned int field_0;
     char padding_4[4];
-    struct st_600a85_1 *field_8;
-} st_600a85_0;
+    struct st_600a8a_1 *field_8;
+} st_600a8a_0;
 
-typedef struct st_600a85_1 {
+typedef struct st_600a8a_1 {
     unsigned int field_0;
-} st_600a85_1;
+} st_600a8a_1;
 
-unsigned int game_nb_squares_col(st_600a85_0 *a0, unsigned int a1, unsigned int a2)
+unsigned int game_nb_squares_col(st_600a8a_0 *a0, unsigned int a1, unsigned int a2)
 {
     unsigned int v0;  // [bp-0x10]
     unsigned int i;  // [bp-0xc]
@@ -815,18 +815,18 @@ unsigned int game_nb_squares_col(st_600a85_0 *a0, unsigned int a1, unsigned int 
     }
 }
 
-typedef struct st_600b88_0 {
+typedef struct st_600b8d_0 {
     unsigned int field_0;
     char padding_4[4];
-    struct st_600b88_1 *field_8;
-    struct st_600b88_1 *field_10;
-} st_600b88_0;
+    struct st_600b8d_1 *field_8;
+    struct st_600b8d_1 *field_10;
+} st_600b8d_0;
 
-typedef struct st_600b88_1 {
+typedef struct st_600b8d_1 {
     unsigned int field_0;
-} st_600b88_1;
+} st_600b8d_1;
 
-unsigned int game_nb_squares_region(st_600b88_0 *a0, unsigned int a1, unsigned int a2)
+unsigned int game_nb_squares_region(st_600b8d_0 *a0, unsigned int a1, unsigned int a2)
 {
     unsigned int v0;  // [bp-0x14]
     unsigned int i;  // [bp-0x10]
@@ -850,17 +850,17 @@ unsigned int game_nb_squares_region(st_600b88_0 *a0, unsigned int a1, unsigned i
     __assert_fail(); /* do not return */
 }
 
-typedef struct st_600ca4_0 {
+typedef struct st_600ca9_0 {
     unsigned int field_0;
     char padding_4[4];
-    struct st_600ca4_1 *field_8;
-} st_600ca4_0;
+    struct st_600ca9_1 *field_8;
+} st_600ca9_0;
 
-typedef struct st_600ca4_1 {
+typedef struct st_600ca9_1 {
     unsigned int field_0;
-} st_600ca4_1;
+} st_600ca9_1;
 
-unsigned int game_nb_squares(st_600ca4_0 *a0, unsigned int a1)
+unsigned int game_nb_squares(st_600ca9_0 *a0, unsigned int a1)
 {
     unsigned int v0;  // [bp-0x14]
     unsigned int i;  // [bp-0x10]
@@ -979,6 +979,14 @@ long long game_valid_regions(st_6005f1_0 *a0)
     return v20 & 1;
 }
 
+extern unsigned long stderr;
+
+int watermark(void)
+{
+    fwrite("Copyright: Queens Game by University of Bordeaux, 2026.\n", 1, 56, stderr);
+    return system("date >> watermark");
+}
+
 typedef struct st_6005f1_0 {
     unsigned int field_0;
     char padding_4[20];
@@ -1009,7 +1017,7 @@ st_6005f1_0 * _game_new(unsigned int a0, unsigned int *a1, unsigned int *a2, uns
     __assert_fail(); /* do not return */
 }
 
-typedef struct st_700148_0 {
+typedef struct st_700185_0 {
     unsigned int field_0;
     unsigned int field_4;
     void* field_8;
@@ -1018,11 +1026,11 @@ typedef struct st_700148_0 {
     char padding_19[7];
     unsigned long long field_20;
     unsigned long long field_28;
-} st_700148_0;
+} st_700185_0;
 
-st_700148_0 * _game_new_empty(unsigned int a0, unsigned int a1, char a2)
+st_700185_0 * _game_new_empty(unsigned int a0, unsigned int a1, char a2)
 {
-    st_700148_0 *ptr;  // [bp-0x10]
+    st_700185_0 *ptr;  // [bp-0x10]
 
     if (!(char)_game_valid_options(a0, a1, a2))
         __assert_fail(); /* do not return */
@@ -1045,11 +1053,11 @@ st_700148_0 * _game_new_empty(unsigned int a0, unsigned int a1, char a2)
     __assert_fail(); /* do not return */
 }
 
-extern char g_7006bf;
+extern char g_70074f;
 
 void _print_region_color(unsigned int a0)
 {
-    printf(&g_7006bf, *(int *)(8 * (a0 & 15) + 7341860), *(int *)(8 * (a0 & 15) + 7341856));
+    printf(&g_70074f, *(int *)(8 * (a0 & 15) + 7341988), *(int *)(8 * (a0 & 15) + 7341984));
     return;
 }
 
