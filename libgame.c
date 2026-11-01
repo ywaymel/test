@@ -16,19 +16,19 @@ typedef struct st_500054_2 {
     struct st_500054_1 *field_10;
 } st_500054_2;
 
-typedef struct st_500054_0 {
+typedef struct cgame__copy {
     unsigned int field_0;
     unsigned int field_4;
     struct st_500054_1 *field_8;
     struct st_500054_1 *field_10;
     char field_18;
-} st_500054_0;
+} cgame__copy;
 
 typedef struct st_500054_1 {
     unsigned int field_0;
 } st_500054_1;
 
-st_500054_2 * game_copy(st_500054_0 *a0)
+st_500054_2 * game_copy(cgame__copy *a0)
 {
     unsigned int i;  // [bp-0x18]
     unsigned int j;  // [bp-0x14]
@@ -48,19 +48,19 @@ st_500054_2 * game_copy(st_500054_0 *a0)
     return ptr;
 }
 
-typedef struct st_50018e_0 {
+typedef struct cgame__equal {
     unsigned int field_0;
     unsigned int field_4;
     struct st_50018e_1 *field_8;
     struct st_50018e_1 *field_10;
     char field_18;
-} st_50018e_0;
+} cgame__equal;
 
 typedef struct st_50018e_1 {
     unsigned int field_0;
 } st_50018e_1;
 
-unsigned int game_equal(st_50018e_0 *a0, st_50018e_0 *a1)
+unsigned int game_equal(cgame__equal *a0, cgame__equal *a1)
 {
     unsigned int i;  // [bp-0x10]
     unsigned int j;  // [bp-0xc]
@@ -121,17 +121,17 @@ void game_set_square(st_50039e_0 *a0, unsigned int a1, unsigned int a2, unsigned
     __assert_fail(); /* do not return */
 }
 
-typedef struct st_500460_0 {
+typedef struct cgame__get_square {
     unsigned int field_0;
     char padding_4[4];
     struct st_500460_1 *field_8;
-} st_500460_0;
+} cgame__get_square;
 
 typedef struct st_500460_1 {
     unsigned int field_0;
 } st_500460_1;
 
-int game_get_square(st_500460_0 *a0, unsigned int a1, unsigned int a2)
+int game_get_square(cgame__get_square *a0, unsigned int a1, unsigned int a2)
 {
     if (a0 && a1 < a0->field_0 && a2 < a0->field_0)
         return *(int *)&a0->field_8[a2 + a1 * a0->field_0 & 0xffffffff];
@@ -158,17 +158,17 @@ void game_set_region(st_5004e1_0 *a0, unsigned int a1, unsigned int a2, unsigned
     __assert_fail(); /* do not return */
 }
 
-typedef struct st_500574_0 {
+typedef struct cgame__get_region {
     unsigned int field_0;
     char padding_4[12];
     struct st_500574_1 *field_10;
-} st_500574_0;
+} cgame__get_region;
 
 typedef struct st_500574_1 {
     unsigned int field_0;
 } st_500574_1;
 
-int game_get_region(st_500574_0 *a0, unsigned int a1, unsigned int a2)
+int game_get_region(cgame__get_region *a0, unsigned int a1, unsigned int a2)
 {
     if (a0 && a1 < a0->field_0 && a2 < a0->field_0)
         return *(int *)&a0->field_10[a2 + a1 * a0->field_0 & 0xffffffff];
@@ -225,18 +225,18 @@ unsigned int game_check_move(unsigned int *a0, unsigned int a1, unsigned int a2,
     return v1 & 1;
 }
 
-typedef struct st_5007a5_0 {
+typedef struct cgame__is_conflicting {
     unsigned int field_0;
     unsigned int field_4;
     struct st_5007a5_1 *field_8;
     struct st_5007a5_1 *field_10;
-} st_5007a5_0;
+} cgame__is_conflicting;
 
 typedef struct st_5007a5_1 {
     unsigned int field_0;
 } st_5007a5_1;
 
-unsigned int game_is_conflicting(st_5007a5_0 *a0, unsigned int a1, unsigned int a2)
+unsigned int game_is_conflicting(cgame__is_conflicting *a0, unsigned int a1, unsigned int a2)
 {
     unsigned int v1;  // eax
     unsigned int v2;  // eax
@@ -257,17 +257,17 @@ unsigned int game_is_conflicting(st_5007a5_0 *a0, unsigned int a1, unsigned int 
     __assert_fail(); /* do not return */
 }
 
-typedef struct st_5008ed_0 {
+typedef struct cgame__won {
     unsigned int field_0;
     unsigned int field_4;
     struct st_5008ed_1 *field_8;
-} st_5008ed_0;
+} cgame__won;
 
 typedef struct st_5008ed_1 {
     unsigned int field_0;
 } st_5008ed_1;
 
-unsigned int game_won(st_5008ed_0 *a0)
+unsigned int game_won(cgame__won *a0)
 {
     unsigned int v4;  // eax
     unsigned int v5;  // eax
